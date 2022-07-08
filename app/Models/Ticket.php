@@ -17,13 +17,23 @@ class Ticket extends Model
     protected $guarded = [];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'code';
+    }
+
+    /**
      * Usuario responsavel pela abertura do ticket
      *
      * @return Illuminate\Support\Database\Eloquent\Collection
      */
-    public function author()
+    public function client()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
@@ -33,6 +43,9 @@ class Ticket extends Model
      */
     public function attendant()
     {
+        return $this->belongsTo(User::class);
+    }
+
     /**
      * Anexos adicionado ao criar o ticket
      *
