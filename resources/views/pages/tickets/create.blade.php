@@ -65,10 +65,12 @@
 
             <div class="mt-4">
                 <x-label for="attachments" :value="__('Attachments upload')" />
-                <input type="file" name="attachments" id="attachments" multiple>
+                <input type="file" name="attachments[]" id="attachments" multiple
+                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded border border-gray-300 cursor-pointer focus:outline-none file:bg-gray-100 file:border-gray-300" />
             </div>
+    </div>
 
-            <x-button type="submit" class="mt-4 mx-auto">{{ __('Save') }}</x-button>
-        </form>
+    <x-button type="submit" class="mt-4 mx-auto">{{ __('Save') }}</x-button>
+    </form>
     </div>
 </x-app-layout>
