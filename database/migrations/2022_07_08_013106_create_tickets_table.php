@@ -15,7 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
+            $table->string('code')->unique()->primary();
             $table->tinyInteger('type')->default(0);
             $table->string('subject');
             $table->string('description');
