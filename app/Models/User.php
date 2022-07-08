@@ -42,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Tickets do cliente
+     *
+     * @return Illuminate\Support\Database\Eloquent\Collection
+     */
+    public function tickets()
+    {
+        return $this->hasMany(User::class);
+    }
 }
