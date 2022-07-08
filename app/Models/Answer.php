@@ -35,4 +35,14 @@ class Answer extends Model
     {
         return $this->belongsTo(Ticket::class);
     }
+
+    /**
+     * Anexos adicionado durante resposta
+     *
+     * @return Illuminate\Support\Database\Eloquent\Collection
+     */
+    public function attachments()
+    {
+        return $this->morphMany(Attachment::class, 'attachable');
+    }
 }

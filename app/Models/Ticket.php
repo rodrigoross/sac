@@ -33,6 +33,13 @@ class Ticket extends Model
      */
     public function attendant()
     {
-        return $this->belongsTo(User::class, 'attendant_id', 'id');
+    /**
+     * Anexos adicionado ao criar o ticket
+     *
+     * @return Illuminate\Support\Database\Eloquent\Collection
+     */
+    public function attachments()
+    {
+        return $this->morphMany(Attachment::class, 'attachable');
     }
 }
